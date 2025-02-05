@@ -1,0 +1,9 @@
+{
+  "dependencies": {
+    "bootstrap": "^5.3.3",
+    "sass": "^1.83.4"
+  },
+  "scripts": {
+    "build-css": "sass --load-path=node_modules assets/scss/custom.scss assets/css/custom.css"
+  }
+}
