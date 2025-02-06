@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Iframe</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            margin: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f9f9f9;
+        }
+
+        .main {
+            width: 100%;
+            height: 98vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .artboard.phone-1 {
+            /* width: 390px; */
+            aspect-ratio: 390 / 844;
+            max-width: 100%;
+            height: 94vh;
+        }
+
+        /* .mockup-phone {
+            display: inline-block;
+            background-color: #f3f3f3;
+            border-radius: 40px;
+            overflow: hidden;
+            position: relative;
+            width: 390px;
+            height: 844px;
+            border: 10px solid #000;
+        }
+
+        .artboard.phone-1 {
+            width: 390px;
+            height: 844px;
+            transform: translateY(-50px);
+            border: none;
+        } */
+    </style>
+    <script>
+        // 모바일 화면 감지 및 리디렉션
+        document.addEventListener("DOMContentLoaded", () => {
+            const isMobile = window.matchMedia("(max-width: 500px)").matches;
+            if (isMobile) {
+                window.location.href = "https://cudifire.web.app";
+            }
+        });
+    </script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="mockup-phone">
+            <div class="camera"></div>
+            <div class="display">
+                <iframe class="artboard phone-1" src="https://cudifire.web.app/index.html"></iframe>
+            </div>
+        </div>
+    </div>
+
+</html>

@@ -11981,9 +11981,9 @@ a {
 }
 
 .swiper-slide img {
-  width: 100%; /* 컨테이너 너비에 맞춤 */
-  height: 100%; /* 컨테이너 높이에 맞춤 */
-  object-fit: contain; /* 이미지 왜곡 없이 잘라서 맞춤 */
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
 }
 
 .isotope-item button {
@@ -11993,6 +11993,42 @@ a {
 .portfolio-info.show-info {
   opacity: 1 !important;
   bottom: 0 !important;
+}
+
+.resume-item a:nth-of-type(2) {
+  color: #000000;
+}
+
+.resume-item h4, .resume-item .h4 {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.border {
+  outline: 5px solid #FEB941;
+}
+
+.social-links a {
+  display: inline-block;
+  position: relative;
+  text-decoration: none;
+  color: black;
+  font-size: 2rem;
+  margin: 0 10px;
+}
+
+.social-links a::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: color-mix(in srgb, var(--default-color), transparent 30%);
+  transform: translateY(-50%) rotate(-15deg);
+  z-index: 1;
+  pointer-events: none;
 }
 
 /*# sourceMappingURL=custom.css.map */
