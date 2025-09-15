@@ -1,70 +1,84 @@
 <!DOCTYPE html>
 <html lang="en">
-
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Iframe</title>
-    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/daisyui@4.12.23/dist/full.min.css"
+      rel="stylesheet"
+      type="text/css"
+    />
     <script src="https://cdn.tailwindcss.com"></script>
     <style>
-        body {
-            margin: 0;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f9f9f9;
-        }
+      body {
+        margin: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        background-color: #f9f9f9;
+      }
 
-        .main {
-            width: 100%;
-            height: 98vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
+      .main {
+        width: 100%;
+        height: 98vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
 
-        .mockup-phone {
-            aspect-ratio: 390 / 844;
-            height: 100%;
+      .mockup-phone {
+        aspect-ratio: 390 / 844;
+        height: 100%;
 
-            /* aspect-ratio: 390 / 844; */
-            /* height: 100vh; */
-            /* 전체 화면 높이에 맞게 조정 */
-            /* width: auto; */
-            /* width는 자동으로 맞춰짐 */
-        }
+        /* aspect-ratio: 390 / 844; */
+        /* height: 100vh; */
+        /* 전체 화면 높이에 맞게 조정 */
+        /* width: auto; */
+        /* width는 자동으로 맞춰짐 */
+      }
 
-        .artboard.phone-1 {
-            aspect-ratio: 390 / 844;
-            /* width: 390px;
+      .artboard.phone-1 {
+        aspect-ratio: 390 / 844;
+        /* width: 390px;
             height: 844px; */
-            /* height: 100%; */
-            /* max-width: 100%; */
-            width: 100%;
-            height: 94vh;
-        }
+        /* height: 100%; */
+        /* max-width: 100%; */
+        width: 100%;
+        height: 94vh;
+      }
     </style>
     <script>
-        // 모바일 화면 감지 및 리디렉션
-        document.addEventListener("DOMContentLoaded", () => {
-            const isMobile = window.matchMedia("(max-width: 500px)").matches;
-            if (isMobile) {
-                window.location.href = "https://cudifire.web.app";
-            }
-        });
+      // 모바일 화면 감지 및 리디렉션
+      document.addEventListener("DOMContentLoaded", () => {
+        const isMobile = window.matchMedia("(max-width: 500px)").matches;
+        if (isMobile) {
+          window.location.href = "https://cudifire.web.app";
+        }
+      });
     </script>
-</head>
+  </head>
 
-<body>
+  <body>
     <div class="main">
-        <div class="mockup-phone">
-            <div class="camera"></div>
-            <div class="display">
-                <iframe class="artboard phone-1" src="https://cudifire.web.app/index.html"></iframe>
-            </div>
+      <div class="mockup-phone">
+        <div class="camera"></div>
+        <div class="display">
+          <iframe id="dynamic-iframe" class="artboard phone-1"></iframe>
         </div>
+      </div>
     </div>
 
+    <script>
+      document.addEventListener("DOMContentLoaded", () => {
+        // URL에서 iframeSrc 파라미터 읽기
+        const params = new URLSearchParams(window.location.search);
+        const iframeUrl =
+          params.get("iframeSrc") || "https://cudifire.web.app/index.html";
+
+        document.getElementById("dynamic-iframe").src = iframeUrl;
+      });
+    </script>
+  </body>
 </html>
