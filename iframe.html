@@ -50,11 +50,18 @@
       }
     </style>
     <script>
-      // 모바일 화면 감지 및 리디렉션
       document.addEventListener("DOMContentLoaded", () => {
+        // URL에서 iframeSrc 파라미터 읽기
+        const params = new URLSearchParams(window.location.search);
+        const iframeUrl =
+          params.get("iframeSrc") || "https://cudifire.web.app/index.html";
+
+        document.getElementById("dynamic-iframe").src = iframeUrl;
+
+        // 모바일 화면 감지 및 리디렉션
         const isMobile = window.matchMedia("(max-width: 500px)").matches;
         if (isMobile) {
-          window.location.href = "https://cudifire.web.app";
+          window.location.href = iframeUrl;
         }
       });
     </script>
@@ -69,16 +76,5 @@
         </div>
       </div>
     </div>
-
-    <script>
-      document.addEventListener("DOMContentLoaded", () => {
-        // URL에서 iframeSrc 파라미터 읽기
-        const params = new URLSearchParams(window.location.search);
-        const iframeUrl =
-          params.get("iframeSrc") || "https://cudifire.web.app/index.html";
-
-        document.getElementById("dynamic-iframe").src = iframeUrl;
-      });
-    </script>
   </body>
 </html>
